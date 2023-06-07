@@ -15,6 +15,7 @@ var state = MOVE
 var velocity = Vector2.ZERO
 var roll_vector = Vector2.DOWN
 var stats = PlayerStats
+var permanence = Permanence
 
 onready var hitBox = $HitboxPivot/Hitbox/CollisionShape2D
 onready var animationPlayer = $AnimationPlayer
@@ -24,6 +25,8 @@ onready var swordHitbox  = $HitboxPivot/Hitbox
 onready var hurtbox = $Hurthbox
 
 func _ready():
+	position.x = permanence.LevelposX
+	position.y = permanence.LevelposY
 	stats.connect("no_health", self, "queue_free")
 	hitBox.disabled = true
 	animationTree.active = true
