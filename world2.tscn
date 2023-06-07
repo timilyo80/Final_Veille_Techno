@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Resources/World/GrassBackground.png" type="Texture" id=1]
 [ext_resource path="res://Resources/World/DirtTileset.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://NewItems/WarpLevel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Bat.tscn" type="PackedScene" id=7]
 
 [sub_resource type="TileSet" id=50]
 0/name = "DirtTileset.png 0"
@@ -373,8 +374,25 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 0, 0, 4, 1, 0, 196609, 2, 0, 196609, 3, 0, 196609, 4, 0, 196609, 5, 0, 196609, 6, 0, 196609, 7, 0, 196609, 8, 0, 196609, 9, 0, 7, 65536, 0, 65539, 65545, 0, 131075, 131072, 0, 65539, 196608, 0, 65539, 196617, 0, 3, 262144, 0, 65539, 262153, 0, 65539, 327680, 0, 196612, 327681, 0, 196609, 327682, 0, 196609, 327683, 0, 196610, 327685, 0, 196608, 327686, 0, 196609, 327687, 0, 196609, 327688, 0, 196609, 327689, 0, 196615 )
 
-[node name="Player" parent="." instance=ExtResource( 5 )]
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 144, 168 )
+
+[node name="Bat" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 64, 64 )
+
+[node name="Bat2" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 120, 48 )
+ID = 1
+
+[node name="Bat3" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 72, 112 )
+ID = 2
+
+[node name="Bat4" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 280, 80 )
+ID = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
