@@ -3,9 +3,10 @@ extends KinematicBody2D
 const DeathEffect = preload("res://BatDeathEffect.tscn")
 
 export var ACCELERATION = 300
-export var MAX_SPEED = 50
+export var MAX_SPEED = 30
 export var FRICTION = 200
 export var ID = 0
+export var RANGE = 50
 
 enum {
 	IDLE,
@@ -44,11 +45,17 @@ func _physics_process(delta):
 		CHASE:
 			var player = playerDetectionZone.player
 			if player != null:
-				var direction = (player.global_position - global_position).normalized()
+				var to_player = player.global_position - global_position
+				var distance = to_player.length()
+				var direction = to_player.normalized()
+				if distance < RANGE:
+					direction = -direction
+					sprite.flip_h = direction.x > 0
+				else:
+					sprite.flip_h = direction.x < 0
 				velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
 			else:
 				state = IDLE
-			sprite.flip_h = velocity.x < 0
 			
 	if softColision.is_colliding():
 		velocity += softColision.get_push_vector() * delta * 400
