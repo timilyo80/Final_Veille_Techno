@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 const DeathEffect = preload("res://BatDeathEffect.tscn")
+const Projectile = preload("res://NewItems/Proj-Bat.tscn")
 
 export var ACCELERATION = 300
 export var MAX_SPEED = 30
@@ -48,6 +49,13 @@ func _physics_process(delta):
 				var to_player = player.global_position - global_position
 				var distance = to_player.length()
 				var direction = to_player.normalized()
+				if $Reload.time_left == 0:
+					$Reload.start()
+					var projectile = Projectile.instance()
+					projectile.velocity = direction
+					projectile.global_position = global_position
+					var world = get_tree().current_scene
+					world.add_child(projectile)
 				if distance < RANGE:
 					direction = -direction
 					sprite.flip_h = direction.x > 0
@@ -55,6 +63,7 @@ func _physics_process(delta):
 					sprite.flip_h = direction.x < 0
 				velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
 			else:
+				$Reload.stop()
 				state = IDLE
 			
 	if softColision.is_colliding():
@@ -63,6 +72,7 @@ func _physics_process(delta):
 
 func Seek_player():
 	if playerDetectionZone.can_see_player():
+		$Reload.start()
 		state = CHASE
 
 func _on_Hurthbox_area_entered(area):

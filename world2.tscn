@@ -384,7 +384,7 @@ shape = SubResource( 52 )
 
 [node name="AnimatedSprite" parent="WarpLevel" index="1"]
 rotation = 3.14159
-frame = 1
+frame = 2
 
 [node name="WarpLevel2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 312, 79 )
@@ -397,7 +397,7 @@ shape = SubResource( 54 )
 
 [node name="AnimatedSprite" parent="WarpLevel2" index="1"]
 rotation = 1.5708
-frame = 1
+frame = 2
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -405,14 +405,14 @@ frame = 1
 position = Vector2( 144, 168 )
 
 [node name="Bat" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 64, 64 )
+position = Vector2( 48, 64 )
 
 [node name="Bat2" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 120, 48 )
 ID = 1
 
 [node name="Bat3" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 72, 112 )
+position = Vector2( 64, 112 )
 ID = 2
 
 [node name="Bat4" parent="YSort" instance=ExtResource( 7 )]

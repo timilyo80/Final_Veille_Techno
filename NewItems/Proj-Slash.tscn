@@ -25,6 +25,8 @@ height = 18.0
 [node name="Proj-Slash" type="Area2D"]
 collision_layer = 0
 script = ExtResource( 1 )
+speed = 300
+fourDirections = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 3 )
