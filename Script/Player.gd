@@ -81,6 +81,7 @@ func move_state(delta):
 		state = ROLL
 
 func roll_state(_delta):
+	$Hurthbox/CollisionShape2D.set_deferred("disabled", true)
 	velocity = roll_vector * ROLL_SPEED
 	animationState.travel("Roll")
 	move()
@@ -97,6 +98,7 @@ func move():
 	velocity = move_and_slide(velocity)
 
 func roll_anim_end():
+	$Hurthbox/CollisionShape2D.disabled = false
 	velocity = velocity * 0.8
 	state = MOVE
 

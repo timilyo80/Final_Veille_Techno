@@ -519,6 +519,7 @@ shape = SubResource( 52 )
 
 [node name="AnimatedSprite" parent="WarpLevel" index="1"]
 rotation = 4.71239
+frame = 2
 
 [node name="YSort" type="YSort" parent="."]
 
