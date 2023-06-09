@@ -436,7 +436,8 @@ warpY = 168
 [node name="CollisionShape2D" parent="WarpLevel" index="0"]
 shape = SubResource( 50 )
 
-[node name="Sprite" parent="WarpLevel" index="1"]
-position = Vector2( 24, 8 )
+[node name="AnimatedSprite" parent="WarpLevel" index="1"]
+position = Vector2( 24, 16 )
+frame = 1
 
 [editable path="WarpLevel"]

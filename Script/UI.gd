@@ -16,9 +16,13 @@ func set_max_life(value):
 	self.life = min(life, max_life)
 	if barDead != null:
 		barDead.rect_size.x = life * 15
+		
+func set_CoolDown(value):
+	$TextureProgress.value = value * 100 / 3
 	
 func _ready():
 	self.max_life = PlayerStats.max_health
 	self.life = PlayerStats.health
 	var _test = PlayerStats.connect("health_changed", self, "set_life")
-	var _test2 =PlayerStats.connect("max_health_changed", self, "set_max_hearths")
+	var _test2 = PlayerStats.connect("max_health_changed", self, "set_max_hearths")
+	var _test3 = PlayerStats.connect("coolDown", self, "set_CoolDown")

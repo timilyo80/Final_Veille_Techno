@@ -4,11 +4,13 @@ const ACCELERATION = 500
 const MAX_SPEED = 80
 const ROLL_SPEED = 100
 const FRICTION = 500
+const Slash = preload("res://NewItems/Proj-Slash.tscn")
 
 enum {
 	MOVE,
 	ROLL,
-	ATTACK
+	ATTACK,
+	SHOOT
 }
 
 var state = MOVE
@@ -40,6 +42,11 @@ func _physics_process(delta):
 			roll_state(delta)
 		ATTACK:
 			attack_state(delta)
+		SHOOT:
+			shoot_state(delta)
+			
+	if $Timer_Slash.time_left != 0:
+		stats.coolDown($Timer_Slash.time_left)
 
 func move_state(delta):
 	var input_vector = Vector2.ZERO
@@ -54,6 +61,7 @@ func move_state(delta):
 		animationTree.set("parameters/Walk/blend_position", input_vector)
 		animationTree.set("parameters/Attack/blend_position", input_vector)
 		animationTree.set("parameters/Roll/blend_position", input_vector)
+		animationTree.set("parameters/Shoot/blend_position", input_vector)
 		animationState.travel("Walk")
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
@@ -64,6 +72,10 @@ func move_state(delta):
 	
 	if Input.is_action_just_pressed("attack"):
 		state = ATTACK
+		
+	if Input.is_action_just_pressed("shoot") && $Timer_Slash.time_left == 0:
+		state = SHOOT
+		$Timer_Slash.start()
 		
 	if Input.is_action_just_pressed("roll"):
 		state = ROLL
@@ -77,6 +89,10 @@ func attack_state(_delta):
 	velocity = Vector2.ZERO
 	animationState.travel("Attack")
 	
+func shoot_state(_delta):
+	velocity = Vector2.ZERO
+	animationState.travel("Shoot")
+	
 func move():
 	velocity = move_and_slide(velocity)
 
@@ -86,6 +102,13 @@ func roll_anim_end():
 
 func attack_anim_end():
 	state = MOVE
+	
+func shoot():
+	var slash = Slash.instance()
+	get_parent().add_child(slash)
+	slash.position = $HitboxPivot.global_position
+	slash.rotation = $HitboxPivot.rotation
+	slash.set_Knockback(animationTree.get("parameters/Idle/blend_position"))
 
 func _on_Hurthbox_area_entered(area):
 	stats.health -= area.damage

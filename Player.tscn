@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://Script/Player.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Player/Player.png" type="Texture" id=2]
@@ -457,6 +457,186 @@ tracks/1/keys = {
 } ]
 }
 
+[sub_resource type="Animation" id=74]
+resource_name = "Shoot-Down"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 36, 37, 38, 39 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "shoot"
+}, {
+"args": [  ],
+"method": "attack_anim_end"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitboxPivot:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 90.0 ]
+}
+
+[sub_resource type="Animation" id=75]
+resource_name = "Shoot-Left"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 32, 33, 34, 35 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "shoot"
+}, {
+"args": [  ],
+"method": "attack_anim_end"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitboxPivot:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 180.0 ]
+}
+
+[sub_resource type="Animation" id=76]
+resource_name = "Shoot-Right"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 24, 25, 26, 27 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "shoot"
+}, {
+"args": [  ],
+"method": "attack_anim_end"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitboxPivot:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=77]
+resource_name = "Shoot-Up"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 28, 29, 30, 31 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "shoot"
+}, {
+"args": [  ],
+"method": "attack_anim_end"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitboxPivot:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 270.0 ]
+}
+
 [sub_resource type="Animation" id=14]
 resource_name = "Walk-Down"
 length = 0.6
@@ -599,6 +779,29 @@ blend_point_3/node = SubResource( 69 )
 blend_point_3/pos = Vector2( 0, -0.9 )
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id=78]
+animation = "Shoot-Left"
+
+[sub_resource type="AnimationNodeAnimation" id=79]
+animation = "Shoot-Down"
+
+[sub_resource type="AnimationNodeAnimation" id=80]
+animation = "Shoot-Right"
+
+[sub_resource type="AnimationNodeAnimation" id=81]
+animation = "Shoot-Up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=82]
+blend_point_0/node = SubResource( 78 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 79 )
+blend_point_1/pos = Vector2( 0, 0.9 )
+blend_point_2/node = SubResource( 80 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 81 )
+blend_point_3/pos = Vector2( 0, -0.9 )
+blend_mode = 1
+
 [sub_resource type="AnimationNodeAnimation" id=70]
 animation = "Walk-Left"
 
@@ -634,6 +837,10 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=55]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=83]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=84]
+
 [sub_resource type="AnimationNodeStateMachine" id=18]
 states/Attack/node = SubResource( 41 )
 states/Attack/position = Vector2( -357, 221 )
@@ -641,11 +848,13 @@ states/Idle/node = SubResource( 25 )
 states/Idle/position = Vector2( -357, 131 )
 states/Roll/node = SubResource( 53 )
 states/Roll/position = Vector2( -357, 24 )
+states/Shoot/node = SubResource( 82 )
+states/Shoot/position = Vector2( -534, 131 )
 states/Walk/node = SubResource( 30 )
 states/Walk/position = Vector2( -130, 131 )
-transitions = [ "Idle", "Walk", SubResource( 31 ), "Walk", "Idle", SubResource( 32 ), "Idle", "Attack", SubResource( 42 ), "Attack", "Idle", SubResource( 43 ), "Roll", "Idle", SubResource( 54 ), "Idle", "Roll", SubResource( 55 ) ]
+transitions = [ "Idle", "Walk", SubResource( 31 ), "Walk", "Idle", SubResource( 32 ), "Idle", "Attack", SubResource( 42 ), "Attack", "Idle", SubResource( 43 ), "Roll", "Idle", SubResource( 54 ), "Idle", "Roll", SubResource( 55 ), "Shoot", "Idle", SubResource( 83 ), "Idle", "Shoot", SubResource( 84 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -691, -39 )
+graph_offset = Vector2( -878, 12 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=19]
 
@@ -683,6 +892,10 @@ anims/Roll-Down = SubResource( 45 )
 anims/Roll-Left = SubResource( 46 )
 anims/Roll-Right = SubResource( 47 )
 anims/Roll-Up = SubResource( 48 )
+anims/Shoot-Down = SubResource( 74 )
+anims/Shoot-Left = SubResource( 75 )
+anims/Shoot-Right = SubResource( 76 )
+anims/Shoot-Up = SubResource( 77 )
 anims/Walk-Down = SubResource( 14 )
 anims/Walk-Left = SubResource( 15 )
 anims/Walk-Right = SubResource( 16 )
@@ -695,6 +908,7 @@ parameters/playback = SubResource( 19 )
 parameters/Attack/blend_position = Vector2( 0, 1 )
 parameters/Idle/blend_position = Vector2( 0, 1 )
 parameters/Roll/blend_position = Vector2( 0, 1 )
+parameters/Shoot/blend_position = Vector2( 0, 0 )
 parameters/Walk/blend_position = Vector2( 0, 1 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
@@ -718,6 +932,10 @@ position = Vector2( -1, -5 )
 shape = SubResource( 56 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Timer_Slash" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 
 [connection signal="area_entered" from="Hurthbox" to="." method="_on_Hurthbox_area_entered"]
 

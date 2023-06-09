@@ -374,6 +374,31 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 0, 0, 4, 1, 0, 196609, 2, 0, 196609, 3, 0, 196609, 4, 0, 196609, 5, 0, 196609, 6, 0, 196609, 7, 0, 196609, 8, 0, 196609, 9, 0, 7, 65536, 0, 65539, 65545, 0, 131075, 131072, 0, 65539, 196608, 0, 65539, 196617, 0, 3, 262144, 0, 65539, 262153, 0, 65539, 327680, 0, 196612, 327681, 0, 196609, 327682, 0, 196609, 327683, 0, 196610, 327685, 0, 196608, 327686, 0, 196609, 327687, 0, 196609, 327688, 0, 196609, 327689, 0, 196615 )
 
+[node name="WarpLevel" parent="." instance=ExtResource( 4 )]
+position = Vector2( 144, 168 )
+warpX = 144
+warpY = 8
+
+[node name="CollisionShape2D" parent="WarpLevel" index="0"]
+shape = SubResource( 52 )
+
+[node name="AnimatedSprite" parent="WarpLevel" index="1"]
+rotation = 3.14159
+frame = 1
+
+[node name="WarpLevel2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 312, 79 )
+level = "world3"
+warpX = 8
+warpY = 80
+
+[node name="CollisionShape2D" parent="WarpLevel2" index="0"]
+shape = SubResource( 54 )
+
+[node name="AnimatedSprite" parent="WarpLevel2" index="1"]
+rotation = 1.5708
+frame = 1
+
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 5 )]
@@ -397,26 +422,6 @@ ID = 3
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 6 )]
-
-[node name="WarpLevel" parent="." instance=ExtResource( 4 )]
-position = Vector2( 144, 168 )
-warpX = 144
-warpY = 8
-
-[node name="CollisionShape2D" parent="WarpLevel" index="0"]
-shape = SubResource( 52 )
-
-[node name="Sprite" parent="WarpLevel" index="1"]
-position = Vector2( 0, 4 )
-
-[node name="WarpLevel2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 312, 79 )
-level = "world3"
-warpX = 8
-warpY = 80
-
-[node name="CollisionShape2D" parent="WarpLevel2" index="0"]
-shape = SubResource( 54 )
 
 [editable path="WarpLevel"]
 [editable path="WarpLevel2"]

@@ -553,6 +553,10 @@ warpY = 80
 [node name="CollisionShape2D" parent="WarpLevel" index="0"]
 shape = SubResource( 52 )
 
+[node name="AnimatedSprite" parent="WarpLevel" index="1"]
+rotation = 4.71239
+frame = 0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 6 )]
