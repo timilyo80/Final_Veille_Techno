@@ -380,6 +380,19 @@ limit_right = 320
 limit_bottom = 320
 smoothing_enabled = true
 
+[node name="WarpLevel" parent="." instance=ExtResource( 9 )]
+position = Vector2( 120, 0 )
+level = "world2"
+warpX = 144
+warpY = 168
+
+[node name="CollisionShape2D" parent="WarpLevel" index="0"]
+shape = SubResource( 50 )
+
+[node name="AnimatedSprite" parent="WarpLevel" index="1"]
+position = Vector2( 24, 16 )
+frame = 0
+
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
@@ -426,18 +439,5 @@ position = Vector2( 256, 32 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 8 )]
-
-[node name="WarpLevel" parent="." instance=ExtResource( 9 )]
-position = Vector2( 120, 0 )
-level = "world2"
-warpX = 144
-warpY = 168
-
-[node name="CollisionShape2D" parent="WarpLevel" index="0"]
-shape = SubResource( 50 )
-
-[node name="AnimatedSprite" parent="WarpLevel" index="1"]
-position = Vector2( 24, 16 )
-frame = 1
 
 [editable path="WarpLevel"]
