@@ -54,6 +54,7 @@ func _physics_process(delta):
 					var projectile = Projectile.instance()
 					projectile.velocity = direction
 					projectile.global_position = global_position
+					projectile.position.y += -15
 					var world = get_tree().current_scene
 					world.add_child(projectile)
 				if distance < RANGE:
